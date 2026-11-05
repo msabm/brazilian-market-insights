@@ -1,2 +1,97 @@
-# brazilian-market-insights
-E-Commerce Business Intelligence using PostgreSQL, Power BI and DAX
+# Brazilian Market Insights — E-Commerce Business Intelligence
+
+## Project Overview
+
+Brazilian Market Insights is a BI project analysing the Brazilian E-Commerce Public Dataset by Olist.
+
+The project aims to transform raw e-commerce transaction data into business insights using PostgreSQL, Power BI and DAX.
+
+The analysis will focus on sales performance, customer behaviour, product performance and delivery operations.
+
+## Objectives
+
+- Design and implement a relational database using PostgreSQL.
+- Develop an analytical data model using a star schema.
+- Perform advanced SQL analysis using CTEs, window functions, aggregations and joins.
+- Develop business performance metrics using DAX.
+- Build an interactive Power BI dashboard for business stakeholders.
+- Translate analytical findings into actionable business insights.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| PostgreSQL | Database management and data modelling |
+| SQL | Data transformation and business analysis |
+| Power BI | Interactive dashboards and visualisation |
+| DAX | Business metrics and analytical calculations |
+| Git / GitHub | Version control and documentation |
+
+## Dataset
+
+**Source:** Brazilian E-Commerce Public Dataset by Olist.
+
+The dataset contains approximately 100,000 orders from a Brazilian e-commerce marketplace, covering customer information, orders, products, sellers, payments, reviews and delivery information.
+
+Dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+The dataset is distributed under the CC BY-NC-SA 4.0 licence. Attribution and licence terms will be respected.
+
+## Planned Analysis
+
+### 1. Sales Performance
+- Total revenue and order volume
+- Average order value
+- Monthly revenue trends
+- Product category performance
+- Revenue contribution and rankings
+
+### 2. Customer Analytics
+- Customer purchasing patterns
+- Repeat customer rate
+- Customer retention
+- Customer segmentation and cohort analysis
+
+### 3. Operations & Delivery
+- On-time delivery performance
+- Average delivery time
+- Delayed orders
+- Seller performance
+- Geographic delivery analysis
+
+## Repository Structure
+
+```text
+brazilian-market-insights/
+│
+├── data/
+│   └── raw/
+├── sql/
+│   ├── analysis/
+│   └── 
+├── powerbi/
+├── screenshots/
+├── docs/
+├── .gitignore
+└── README.md
+```
+
+## Project Status
+
+**1.** Initial setup and dataset acquisition.
+
+**2.** Dataset exploration and key analysis.
+
+### Data Exploration Findings
+
+- Explored all 9 CSV datasets, containing approximately 1.55 million records.
+- Identified primary keys and composite keys across the datasets.
+- Validated 6 foreign key relationships, with zero unmatched records.
+- Identified repeated `customer_unique_id` and `review_id` values, distinguishing them from duplicate records.
+- Investigated geolocation data and identified multiple coordinate records for many ZIP code prefixes.
+- Documented missing values and data quality considerations.
+
+
+## Final Deliverable
+
+A documented, portfolio-ready business intelligence project demonstrating database design, advanced SQL analysis, data modelling, DAX and interactive Power BI reporting.

@@ -1,0 +1,14 @@
+# raw datasets
+data/raw/*.csv
+
+# power bi temp files
+*.pbit
+*.tmp
+
+# system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor files
+.vscode/
