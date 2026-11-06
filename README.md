@@ -68,19 +68,21 @@ brazilian-market-insights/
 │   └── raw/
 ├── sql/
 │   ├── analysis/
-│   └── 
+│   └── Raw table creation.sql
 ├── powerbi/
 ├── screenshots/
 ├── docs/
+│   ├── data_exploration.py
+│   └── kay_analysis.py
 ├── .gitignore
 └── README.md
 ```
 
 ## Project Status
 
-**1.** Initial setup and dataset acquisition.
-
-**2.** Dataset exploration and key analysis.
+**1.** Initial setup and dataset acquisition.  
+**2.** Dataset exploration and key analysis.  
+**3.** PostgreSQL setup and raw data ingestion.  
 
 ### Data Exploration Findings
 
@@ -91,6 +93,11 @@ brazilian-market-insights/
 - Investigated geolocation data and identified multiple coordinate records for many ZIP code prefixes.
 - Documented missing values and data quality considerations.
 
+### Data Ingestion Summary
+- Created a PostgreSQL database with a dedicated schema and imported all 9 raw datasets.  
+- Validated imported record counts against original datasets.  
+
+**Total ingested records: 1,550,922**
 
 ## Final Deliverable
 
