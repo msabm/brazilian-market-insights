@@ -73,7 +73,8 @@ brazilian-market-insights/
 ├── screenshots/
 ├── docs/
 │   ├── data_exploration.py
-│   └── kay_analysis.py
+│   ├── key_analysis.py
+│   └── star_schema_design.md
 ├── .gitignore
 └── README.md
 ```
