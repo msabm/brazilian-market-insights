@@ -68,7 +68,7 @@ brazilian-market-insights/
 │   └── raw/
 ├── sql/
 │   ├── analysis/
-│   └── Raw table creation.sql
+│   └── raw_table_creation.sql
 ├── powerbi/
 ├── screenshots/
 ├── docs/
@@ -83,6 +83,7 @@ brazilian-market-insights/
 **1.** Initial setup and dataset acquisition.  
 **2.** Dataset exploration and key analysis.  
 **3.** PostgreSQL setup and raw data ingestion.  
+**4.**  Creating Fact and Dimension tables for star schema design.
 
 ### Data Exploration Findings
 
