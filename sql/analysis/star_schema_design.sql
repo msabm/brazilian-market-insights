@@ -88,8 +88,8 @@ CREATE TABLE analytics.fact_orders (
 	delivered_date_key INTEGER REFERENCES analytics.dim_date(date_key),
 	estimated_delivery_date_key INTEGER REFERENCES analytics.dim_date(date_key),
 	order_status VARCHAR(30),
-	delivery_date INTEGER,
-	delivery_dalay_days INTEGER
+	delivery_days INTEGER,
+	delivery_delay_days INTEGER
 );
 
 
@@ -179,20 +179,6 @@ FROM raw.order_payments
 WHERE payment_type IS NOT NULL;
 
 
--- Validating
-SELECT 'dim_customers' AS table_name, COUNT(*) AS row_count
-FROM analytics.dim_customers
-UNION ALL
-SELECT 'dim_products', COUNT(*)
-FROM analytics.dim_products
-UNION ALL
-SELECT 'dim_sellers', COUNT(*)
-FROM analytics.dim_sellers
-UNION ALL
-SELECT 'dim_payment_types', COUNT(*)
-FROM analytics.dim_payment_types;
-
-
 -- 5. Date
 INSERT INTO analytics.dim_date (
 	date_key,
@@ -223,13 +209,166 @@ FROM GENERATE_SERIES (
 ) AS d;
 
 
+-- 6. Order Items
+INSERT INTO analytics.fact_order_items (
+	order_id,
+	order_item_id,
+	customer_key,
+	product_key,
+	seller_key,
+	shipping_limit_date_key,
+	price,
+	freight_value
+)
+SELECT oi.order_id,
+	oi.order_item_id,
+	dc.customer_key,
+	dp.product_key,
+	ds.seller_key,
+	dd.date_key,
+	oi.price,
+	oi.freight_value
+FROM raw.order_items oi
+JOIN raw.orders o
+	ON oi.order_id = o.order_id
+JOIN analytics.dim_customers dc
+	ON o.customer_id = dc.customer_id
+JOIN analytics.dim_products dp
+	ON oi.product_id = dp.product_id
+JOIN analytics.dim_sellers ds
+	ON oi.seller_id = ds.seller_id
+LEFT JOIN analytics.dim_date dd
+	ON oi.shipping_limit_date::DATE = dd.full_date;
+
+
+-- 7. Orders
+INSERT INTO analytics.fact_orders (
+	order_id,
+	customer_key,
+	purchase_date_key,
+	approved_date_key,
+	carrier_date_key,
+	delivered_date_key,
+	estimated_delivery_date_key,
+	order_status,
+	delivery_days,
+	delivery_delay_days
+)
+SELECT o.order_id,
+	dc.customer_key,
+	dp.date_key,
+	da.date_key,
+	dca.date_key,
+	ddel.date_key,
+	dest.date_key,
+	o.order_status,
+
+	 CASE
+        WHEN o.order_delivered_customer_date IS NOT NULL
+        THEN o.order_delivered_customer_date::DATE
+             - o.order_purchase_timestamp::DATE
+    END,
+
+    CASE
+        WHEN o.order_delivered_customer_date IS NOT NULL
+        THEN o.order_delivered_customer_date::DATE
+             - o.order_estimated_delivery_date::DATE
+    END
+
+FROM raw.orders o
+JOIN analytics.dim_customers dc
+	ON o.customer_id = dc.customer_id
+LEFT JOIN analytics.dim_date dp
+	ON o.order_purchase_timestamp::DATE = dp.full_date
+LEFT JOIN analytics.dim_date da
+	ON o.order_approved_at::DATE = da.full_date
+LEFT JOIN analytics.dim_date dca
+	ON o.order_delivered_carrier_date::DATE = dca.full_date
+LEFT JOIN analytics.dim_date ddel
+	ON o.order_delivered_carrier_date::DATE = ddel.full_date
+LEFT JOIN analytics.dim_date dest
+	ON o.order_estimated_delivery_date::DATE = dest.full_date;
+
+
+-- 8. Payments
+INSERT INTO analytics.fact_payments (
+	order_id,
+	payment_sequential,
+	payment_type_key,
+	payment_installments,
+	payment_value
+)
+SELECT op.order_id,
+	op.payment_sequential,
+	dpt.payment_type_key,
+	op.payment_installments,
+	op.payment_value
+FROM raw.order_payments op
+JOIN analytics.dim_payment_types dpt
+	ON op.payment_type = dpt.payment_type;
+
+
+-- 9. Reviews
+INSERT INTO analytics.fact_reviews (
+	review_id,
+	order_id,
+	customer_key,
+	review_date_key,
+	answer_date_key,
+	review_score
+)
+SELECT r.review_id,
+	r.order_id,
+	dc.customer_key,
+	dr.date_key,
+	da.date_key,
+	r.review_score
+FROM raw.order_reviews r
+JOIN raw.orders o
+	ON r.order_id = o.order_id
+JOIN analytics.dim_customers dc
+	ON o.customer_id = dc.customer_id
+LEFT JOIN analytics.dim_date dr
+	ON r.review_creation_date::DATE = dr.full_date
+LEFT JOIN analytics.dim_date da
+	ON r.review_answer_timestamp::DATE = da.full_date;
+
+
+-- Validating
+SELECT 'dim_customers' AS table_name, COUNT(*) AS row_count
+FROM analytics.dim_customers
+UNION ALL
+SELECT 'dim_products', COUNT(*)
+FROM analytics.dim_products
+UNION ALL
+SELECT 'dim_sellers', COUNT(*)
+FROM analytics.dim_sellers
+UNION ALL
+SELECT 'dim_payment_types', COUNT(*)
+FROM analytics.dim_payment_types;
+
+
 SELECT COUNT(*) AS total_dates,
 	MIN(full_date) AS first_date,
 	MAX(full_date) AS last_date
 FROM analytics.dim_date;
 
 
-
+SELECT 'fact_order_items' AS table_name,
+	(SELECT COUNT(*) FROM raw.order_items) AS raw_count,
+	(SELECT COUNT(*) FROM analytics.fact_order_items) AS fact_count
+UNION ALL
+SELECT 'fact_orders',
+	(SELECT COUNT(*) FROM raw.orders),
+	(SELECT COUNT(*) FROM analytics.fact_orders)
+UNION ALL
+SELECT 'fact_payments',
+	(SELECT COUNT(*) FROM raw.order_payments),
+	(SELECT COUNT(*) FROM analytics.fact_payments)
+UNION ALL
+SELECT 'fact_reviews',
+	(SELECT COUNT(*) FROM raw.order_reviews),
+	(SELECT COUNT(*) FROM analytics.fact_reviews);
 
 
 

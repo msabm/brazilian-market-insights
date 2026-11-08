@@ -84,7 +84,8 @@ brazilian-market-insights/
 **1.** Initial setup and dataset acquisition.  
 **2.** Dataset exploration and key analysis.  
 **3.** PostgreSQL setup and raw data ingestion.  
-**4.**  Creating Fact and Dimension tables for star schema design.
+**4.** Creating Fact and Dimension tables for star schema design.
+**5.**  Star schema design, implementation and data loading completed.
 
 ### Data Exploration Findings
 
@@ -97,7 +98,12 @@ brazilian-market-insights/
 
 ### Data Ingestion Summary
 - Created a PostgreSQL database with a dedicated schema and imported all 9 raw datasets.  
-- Validated imported record counts against original datasets.  
+- Validated imported record counts against original datasets. 
+- Created 5 dimension tables and 4 fact tables.
+- Implemented surrogate keys and primary/foreign key relationships.
+- Populated dimensions and fact tables from the raw Olist datasets.
+- Calculated delivery duration and delivery delay metrics.
+- Validated fact table record counts against raw source tables. 
 
 **Total ingested records: 1,550,922**
 
