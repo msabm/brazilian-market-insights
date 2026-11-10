@@ -84,7 +84,8 @@ brazilian-market-insights/
 **1.** Initial setup and dataset acquisition.  
 **2.** Dataset exploration and key analysis.  
 **3.** PostgreSQL setup and raw data ingestion.  
-**4.**  Star schema design, implementation and data loading completed.
+**4.** Star schema design, implementation and data loading completed.
+**5.** Monthly sales trends and MoM growth using CTEs and window functions completed.
 
 ### Data Exploration Findings
 

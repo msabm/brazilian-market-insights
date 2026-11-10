@@ -116,7 +116,6 @@ CREATE TABLE analytics.fact_reviews (
 );
 
 
-
 -- Populating the tables
 -- 1. Customers
 INSERT INTO analytics.dim_customers (
@@ -151,7 +150,7 @@ SELECT p.product_id,
 	p.product_length_cm,
 	p.product_height_cm,
 	p.product_width_cm
-FROM raw. products p
+FROM raw.products p
 LEFT JOIN raw.product_category_name_translation t
 	ON p.product_category_name = t.product_category_name;
 
