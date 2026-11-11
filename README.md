@@ -25,7 +25,7 @@ The analysis will focus on sales performance, customer behaviour, product perfor
 | SQL | Data transformation and business analysis |
 | Power BI | Interactive dashboards and visualisation |
 | DAX | Business metrics and analytical calculations |
-| Git / GitHub | Version control and documentation |
+| Git/GitHub | Version control and documentation |
 
 ## Dataset
 
@@ -85,7 +85,8 @@ brazilian-market-insights/
 **2.** Dataset exploration and key analysis.  
 **3.** PostgreSQL setup and raw data ingestion.  
 **4.** Star schema design, implementation and data loading completed.  
-**5.** Monthly sales trends and MoM growth using CTEs and window functions completed.
+**5.** Monthly sales trends, customer purchasing behaviour and product performance completed.  
+
 
 ### Data Exploration Findings
 
