@@ -51,23 +51,3 @@ FROM sales_with_previous_month
 ORDER BY sales_month;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
