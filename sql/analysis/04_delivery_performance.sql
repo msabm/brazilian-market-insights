@@ -2,7 +2,7 @@
 /*
 
 Comparing delivery speed and delays across different states using:
-CTEs, AVG, CASE
+FILTER, AVG, CASE, SUM, OVER
 
 */
 
@@ -45,18 +45,5 @@ FROM analytics.fact_orders
 WHERE delivery_days IS NOT NULL
 GROUP BY delivery_bucket
 ORDER BY MIN(delivery_days);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
