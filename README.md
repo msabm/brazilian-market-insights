@@ -86,7 +86,8 @@ brazilian-market-insights/
 **3.** PostgreSQL setup and raw data ingestion.  
 **4.** Star schema design, implementation and data loading completed.  
 **5.** Monthly sales trends, customer purchasing behaviour and product performance completed.  
-**6.**  Delivery performance analysis completed.
+**6.** Delivery performance analysis completed.  
+**7.** Dashboard set up, configured data model relationships, marked date table, created core DAX measures and built initial visuals.
 
 
 ### Data Exploration Findings
