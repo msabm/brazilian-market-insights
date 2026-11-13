@@ -70,6 +70,7 @@ brazilian-market-insights/
 │   ├── analysis/
 │   └── raw_table_creation.sql
 ├── powerbi/
+│   ├── consumer_insights_dashboard.pbix
 ├── screenshots/
 ├── docs/
 │   ├── data_exploration.py
