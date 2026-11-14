@@ -89,6 +89,7 @@ brazilian-market-insights/
 **5.** Monthly sales trends, customer purchasing behaviour and product performance completed.  
 **6.** Delivery performance analysis completed.  
 **7.** Dashboard set up, configured data model relationships, marked date table, created core DAX measures and built initial visuals.
+**8.** Created the Executive Overview report page.  
 
 
 ### Data Exploration Findings
