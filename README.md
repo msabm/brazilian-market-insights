@@ -90,7 +90,7 @@ brazilian-market-insights/
 **6.** Delivery performance analysis completed.  
 **7.** Dashboard set up, configured data model relationships, marked date table, created core DAX measures and built initial visuals.  
 **8.** Created the Executive Overview report page.  
-
+**9.** Working on Customer and Product analytics report page. 
 
 ### Data Exploration Findings
 
