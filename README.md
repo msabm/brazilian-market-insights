@@ -48,9 +48,9 @@ The dataset is distributed under the CC BY-NC-SA 4.0 licence. Attribution and li
 
 ### 2. Customer Analytics
 - Customer purchasing patterns
-- Repeat customer rate
-- Customer retention
-- Customer segmentation and cohort analysis
+- Repeat customer rate and purchasing behaviour
+- Customer retention and cohort analysis
+- Customer segmentation
 
 ### 3. Operations & Delivery
 - On-time delivery performance
@@ -90,8 +90,8 @@ brazilian-market-insights/
 **6.** Delivery performance analysis completed.  
 **7.** Dashboard set up, configured data model relationships, marked date table, created core DAX measures and built initial visuals.  
 **8.** Created the Executive Overview report page.  
-**9.** Completed visuals for Customer and Product analytics report page.  
-**10.** Completed visuals for Repeat Customers report page.
+**9.** Developed Customer and Product Analytics visuals, including cohort retention and product portfolio analysis.  
+**10.** Developed Repeat Customer Analytics visuals, including purchase frequency, customer sales rankings and product preferences.  
 
 ### Data Exploration Findings
 
@@ -116,4 +116,4 @@ brazilian-market-insights/
 
 ## Final Deliverable
 
-A documented, portfolio-ready business intelligence project demonstrating database design, advanced SQL analysis, data modelling, DAX and interactive Power BI reporting.
+A portfolio-ready business intelligence project demonstrating relational database design, advanced SQL analysis, dimensional modelling, DAX development and interactive Power BI reporting.  
