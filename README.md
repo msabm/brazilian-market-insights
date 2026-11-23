@@ -92,6 +92,7 @@ brazilian-market-insights/
 **8.** Created the Executive Overview report page.  
 **9.** Developed Customer and Product Analytics visuals, including cohort retention and product portfolio analysis.  
 **10.** Developed Repeat Customer Analytics visuals, including purchase frequency, customer sales rankings and product preferences.  
+**11.** Developed interactive Power BI visuals for repeat customer purchasing frequency, sales contribution and product preferences.  
 
 ### Data Exploration Findings
 
