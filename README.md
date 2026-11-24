@@ -115,6 +115,14 @@ brazilian-market-insights/
 
 **Total records: 1,550,922**
 
+## Metric Definitions & Assumptions
+
+- **Total Sales:** Calculated as the sum of product item prices, excluding freight charges.
+- **Average Order Value:** Total sales divided by the number of distinct orders.
+- **Repeat Customer:** A unique customer who has placed at least two delivered orders.
+- **Customer Retention:** Measured through repeat purchasing activity across monthly customer cohorts.
+- **Profitability:** Not calculated, as product cost and profit data are not available in the dataset.
+
 ## Final Deliverable
 
 A portfolio-ready business intelligence project demonstrating relational database design, advanced SQL analysis, dimensional modelling, DAX development and interactive Power BI reporting.  
