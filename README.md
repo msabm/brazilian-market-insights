@@ -37,12 +37,12 @@ Dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 The dataset is distributed under the CC BY-NC-SA 4.0 licence. Attribution and licence terms will be respected.
 
-## Planned Analysis
+## Analysis Conducted
 
 ### 1. Sales Performance
-- Total revenue and order volume
+- Total sales and order volume
 - Average order value
-- Monthly revenue trends
+- Monthly sales trends and month-over-month analysis
 - Product category performance
 - Revenue contribution and rankings
 
@@ -50,14 +50,18 @@ The dataset is distributed under the CC BY-NC-SA 4.0 licence. Attribution and li
 - Customer purchasing patterns
 - Repeat customer rate and purchasing behaviour
 - Customer retention and cohort analysis
-- Customer segmentation
+- Repeat customer purchasing frequency
 
-### 3. Operations & Delivery
+### 3. Product Analytics
+- Product and category performance
+- Product portfolio analysis by sales and units sold
+- Revenue concentration across product categories
+
+### 4. Operations & Delivery
 - On-time delivery performance
 - Average delivery time
 - Delayed orders
-- Seller performance
-- Geographic delivery analysis
+- Geographic delivery performance
 
 ## Repository Structure
 
@@ -82,17 +86,20 @@ brazilian-market-insights/
 
 ## Project Status
 
-**1.** Initial setup and dataset acquisition.  
-**2.** Dataset exploration and key analysis.  
-**3.** PostgreSQL setup and raw data ingestion.  
-**4.** Star schema design, implementation and data loading completed.  
-**5.** Monthly sales trends, customer purchasing behaviour and product performance completed.  
-**6.** Delivery performance analysis completed.  
-**7.** Dashboard set up, configured data model relationships, marked date table, created core DAX measures and built initial visuals.  
-**8.** Created the Executive Overview report page.  
-**9.** Developed Customer and Product Analytics visuals, including cohort retention and product portfolio analysis.  
-**10.** Developed Repeat Customer Analytics visuals, including purchase frequency, customer sales rankings and product preferences.  
-**11.** Developed interactive Power BI visuals for repeat customer purchasing frequency, sales contribution and product preferences.  
+**Completed:**
+
+1. Dataset acquisition and exploration across all 9 source datasets.
+2. PostgreSQL database setup and raw data ingestion.
+3. Data validation and integrity checks.
+4. Star schema design, implementation and loading.
+5. Advanced SQL analysis covering sales, customer behaviour, product performance and delivery operations.
+6. Power BI data modelling, relationships, date table configuration and DAX measure development.
+7. Development of the Executive Overview dashboard.
+8. Development of Customer & Product Analytics dashboard.
+9. Development of Repeat Customer Analytics dashboard.
+10. Interactive report filters, KPI cards and business analysis visualisations.
+
+The project has been completed and documented as a portfolio project.  
 
 ### Data Exploration Findings
 
@@ -117,12 +124,14 @@ brazilian-market-insights/
 
 ## Metric Definitions & Assumptions
 
-- **Total Sales:** Calculated as the sum of product item prices, excluding freight charges.
-- **Average Order Value:** Total sales divided by the number of distinct orders.
-- **Repeat Customer:** A unique customer who has placed at least two delivered orders.
-- **Customer Retention:** Measured through repeat purchasing activity across monthly customer cohorts.
-- **Profitability:** Not calculated, as product cost and profit data are not available in the dataset.
+- **Total Sales:** Sum of product item prices, excluding freight charges.
+- **Average Order Value (AOV):** Total sales divided by the number of distinct orders.
+- **Repeat Customer:** A unique customer with at least two delivered orders.
+- **Customer Retention:** Repeat purchasing activity analysed across monthly customer cohorts.
+- **Profitability:** Not calculated, as product cost and profit data are unavailable in the dataset.
 
 ## Final Deliverable
 
-A portfolio-ready business intelligence project demonstrating relational database design, advanced SQL analysis, dimensional modelling, DAX development and interactive Power BI reporting.  
+Completed an end-to-end business intelligence project using PostgreSQL, advanced SQL, dimensional modelling, DAX and Power BI.
+
+The project transforms raw e-commerce data into an analytical data model and interactive dashboards covering sales performance, customer behaviour, product performance and delivery operations.
